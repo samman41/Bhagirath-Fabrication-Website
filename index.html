@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bhagirath Fabrication PVT. LTD - Authorised NEPATOP UPVC Dealer | Chitwan, Bharatpur</title>
+  <meta name="description"
+    content="Bhagirath Fabrication PVT. LTD - Authorised NEPATOP Dealer in Bharatpur, Chitwan. Premium UPVC Doors, Windows & Partitions with 25 Years Profile Guarantee & 2 Years Hardware Warranty.">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="logo/logo.jpg">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=1.1">
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-info">
+        <span><i class="fas fa-map-marker-alt text-gold"></i> Bharatpur, Chitwan, Nepal</span>
+        <span><i class="fas fa-phone-alt text-gold"></i> +977 9866387790 / WhatsApp</span>
+        <span><i class="fas fa-shield-alt text-gold"></i> Authorised NEPATOP Dealer</span>
+      </div>
+      <div style="font-size:0.8rem; color:#F7E9AA; font-weight:600;">
+        <i class="fas fa-certificate"></i> Premium UPVC Fabrication
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <!-- Company Logos -->
+      <a href="index.html" class="brand-container">
+        <img src="logo/logo.jpg" alt="Bhagirath Fabrication PVT. LTD Logo" class="brand-logo-main"
+          onerror="this.style.display='none'">
+        <div class="brand-divider"></div>
+        <div class="brand-nepatop-container">
+          <img src="logo/nepatop-logo.png" alt="NEPATOP Logo" class="nepatop-logo">
+          <span class="nepatop-tag"><i class="fas fa-check-circle"></i> AUTHORISED DEALER</span>
+        </div>
+      </a>
+
+      <!-- Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#guarantees" class="nav-link">Guarantees</a></li>
+        <li><a href="#services" class="nav-link">Services</a></li>
+        <li><a href="#work" class="nav-link">Our Work</a></li>
+        <li><a href="#reviews" class="nav-link">Customer Reviews</a></li>
+        <li><a href="#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <!-- Action Button -->
+      <div class="nav-buttons">
+        <a href="#contact" class="btn btn-gold btn-sm"><i class="fas fa-calendar-check"></i> Book Site Visit</a>
+        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge">
+            <i class="fas fa-award text-gold"></i> Authorised Dealer of NEPATOP (Nepali Brand)
+          </div>
+          <h1>Premium <span class="gradient-text">UPVC Doors, Windows</span> & Partitions</h1>
+          <p>
+            Welcome to <strong>Bhagirath Fabrication PVT. LTD</strong>, Bharatpur's trusted destination for elite UPVC
+            architectural solutions. We deliver superior thermal insulation, soundproofing, and modern aesthetic
+            elegance built with 5mm heavy-duty glass.
+          </p>
+
+          <!-- Key Highlights Pills -->
+          <div class="hero-guarantee-pills">
+            <div class="guarantee-pill" onclick="showSpecDetails('profile')">
+              <i class="fas fa-shield-alt"></i> 25 Years Profile Guarantee
+            </div>
+            <div class="guarantee-pill" onclick="showSpecDetails('hardware')">
+              <i class="fas fa-tools"></i> 2 Years Hardware Warranty
+            </div>
+            <div class="guarantee-pill" onclick="showSpecDetails('glass')">
+              <i class="fas fa-layer-group"></i> 5 mm Glass Standard
+            </div>
+          </div>
+
+          <div class="hero-ctas">
+            <button onclick="openModal('specsModal')" class="btn btn-primary"><i class="fas fa-list-check"></i> View
+              Specifications</button>
+            <a href="#work" class="btn btn-outline"><i class="fas fa-images"></i> Explore Our Work</a>
+          </div>
+        </div>
+
+        <div class="hero-image-wrapper">
+          <div class="hero-main-card">
+            <img src="images/house 4.jpg" alt="Bhagirath UPVC House Installation in Chitwan"
+              onerror="this.src='images/house 1.jpg'">
+
+            <div class="hero-floating-dealer">
+              <img src="logo/nepatop-logo.png" alt="NEPATOP Logo" style="height:28px;">
+              <div>
+                <strong style="display:block; font-size:0.8rem; color:var(--color-primary);">Official Partner</strong>
+                <span style="font-size:0.7rem; color:var(--color-text-muted);">Certified Quality</span>
+              </div>
+            </div>
+
+            <div class="hero-floating-stat">
+              <div class="number" id="projects-counter">2000+</div>
+              <div class="text">Projects Completed<br>In Chitwan & Nearby</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantees & Credentials Banner -->
+  <section class="guarantees-banner" id="guarantees">
+    <div class="container">
+      <div class="banner-grid">
+        <div class="banner-item" onclick="showSpecDetails('profile')">
+          <div class="banner-icon"><i class="fas fa-shield-halved"></i></div>
+          <div class="banner-content">
+            <h4>25 Years Profile Guarantee</h4>
+            <p>High quality Nepatop UPVC profiles engineered to withstand extreme sunlight, rain, and humidity without
+              yellowing or cracking.</p>
+          </div>
+        </div>
+
+        <div class="banner-item" onclick="showSpecDetails('hardware')">
+          <div class="banner-icon"><i class="fas fa-wrench"></i></div>
+          <div class="banner-content">
+            <h4>2 Years Hardware Warranty</h4>
+            <p>Comprehensive 2-year warranty on heavy duty rollers, locks, hinges, and ergonomic handles for smooth
+              long-term operation.</p>
+          </div>
+        </div>
+
+        <div class="banner-item" onclick="showSpecDetails('glass')">
+          <div class="banner-icon"><i class="fas fa-square-full"></i></div>
+          <div class="banner-content">
+            <h4>5 mm Glass Fitment</h4>
+            <p>We install 5mm premium grade toughened single or double glazed glass for superior acoustic noise
+              reduction and security.</p>
+          </div>
+        </div>
+
+        <div class="banner-item" onclick="showSpecDetails('brand')">
+          <div class="banner-icon"><i class="fas fa-flag"></i></div>
+          <div class="banner-content">
+            <h4>Authentic Nepali Brand</h4>
+            <p>Proudly authorized dealer of NEPATOP—Nepal's premier manufacturing brand trusted across residential and
+              commercial builds.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-cog"></i> Our Specializations</span>
+        <h2>Premium UPVC Solutions for Homes & Offices</h2>
+        <p>Crafted with precision engineering in Bharatpur, Chitwan to elevate your space aesthetics and security.</p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-window-maximize"></i></div>
+          <h3>UPVC Sliding & Casement Windows</h3>
+          <p>Custom made 2-track, 3-track sliding, and casement windows fitted with insect mesh and noise barrier seals.
+          </p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> 5mm Clear or Tinted Glass</li>
+            <li><i class="fas fa-check-circle"></i> Dust & Monsoon Rain Protection</li>
+            <li><i class="fas fa-check-circle"></i> 25 Years Profile Guarantee</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-sm">Book Site Visit</a>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-door-open"></i></div>
+          <h3>UPVC Main Entrance & Interior Doors</h3>
+          <p>Elegant, water-proof, and termite-proof doors perfect for main entrances, balconies, terraces, and
+            bathrooms.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Multi-point Security Lock System</li>
+            <li><i class="fas fa-check-circle"></i> 2 Years Hardware Warranty</li>
+            <li><i class="fas fa-check-circle"></i> Termite & Moisture Proof</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-sm">Book Site Visit</a>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-border-all"></i></div>
+          <h3>Office & Space UPVC Partitions</h3>
+          <p>Modern glass and UPVC wall partitions designed for offices, commercial showrooms, and home space division.
+          </p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Frosted & Soundproof 5mm Glass</li>
+            <li><i class="fas fa-check-circle"></i> Sleek Gold & Green Accents</li>
+            <li><i class="fas fa-check-circle"></i> Quick Professional Fitting</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-sm">Book Site Visit</a>
+        </div>
+
+        <!-- Service 4 -->
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-tools"></i></div>
+          <h3>Custom Fitting & Maintenance</h3>
+          <p>Expert site measurement, customized fabrication, installation, and replacement services across Chitwan.</p>
+          <ul class="service-list">
+            <li><i class="fas fa-check-circle"></i> Free On-site Measurement</li>
+            <li><i class="fas fa-check-circle"></i> NEPATOP Genuine Parts</li>
+            <li><i class="fas fa-check-circle"></i> Experienced Local Technicians</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline btn-sm">Book Site Visit</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Work / Portfolio Gallery Section -->
+  <section class="work-section" id="work">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-building"></i> Project Gallery</span>
+        <h2>Recent Completed Projects in Chitwan</h2>
+        <p>Explore real photographs of houses, villas, and offices fabricated and installed by our team.</p>
+      </div>
+
+      <!-- Gallery Filters -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All Work</button>
+        <button class="filter-btn" data-filter="windows">UPVC Windows</button>
+        <button class="filter-btn" data-filter="doors">UPVC Doors</button>
+        <button class="filter-btn" data-filter="partitions">Partitions</button>
+      </div>
+
+      <!-- Dynamic Gallery Grid -->
+      <div class="gallery-grid" id="galleryContainer" data-limit="6">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- See More Gallery Button -->
+      <div class="gallery-see-more" style="text-align: center; margin-top: 40px;">
+        <a href="works.html" class="btn btn-outline">
+          <i class="fas fa-images"></i> See More Works
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews & Rating System -->
+  <section class="reviews-section" id="reviews">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-star text-gold"></i> Client Satisfaction</span>
+        <h2>What Our Customers Say About Us</h2>
+        <p>Verified client ratings and feedback. Every review submitted by users is verified by our Admin team before
+          being published.</p>
+      </div>
+
+      <!-- Rating Summary Breakdown Box -->
+      <div class="reviews-summary-card">
+        <div class="rating-score-box">
+          <div class="rating-big-number" id="avgRatingNum">5.0</div>
+          <div class="star-rating-display" id="starsHeaderDisplay">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="total-reviews-count" id="totalReviewsCount">Based on 3 verified client reviews</div>
+        </div>
+
+        <div class="rating-bars-container">
+          <div class="rating-bar-item">
+            <span>5 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar5" style="width: 100%;"></div>
+            </div>
+            <span id="starPercent5">100%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>4 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar4" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent4">0%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>3 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar3" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent3">0%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>2 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar2" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent2">0%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>1 Star</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar1" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent1">0%</span>
+          </div>
+        </div>
+
+        <div class="reviews-action-box">
+          <button class="btn btn-gold" onclick="openModal('reviewModal')">
+            <i class="fas fa-pen"></i> Write a Review
+          </button>
+          <p style="font-size:0.75rem; color:var(--color-text-muted); margin-top:8px;">
+            Submitted reviews go to Admin for approval
+          </p>
+        </div>
+      </div>
+
+      <!-- Approved Reviews Grid -->
+      <div class="reviews-grid" id="reviewsGrid" data-limit="6">
+        <!-- Rendered dynamically -->
+      </div>
+
+      <!-- See More Reviews Button -->
+      <div class="reviews-see-more" style="text-align: center; margin-top: 40px;">
+        <a href="reviews.html" class="btn btn-outline">
+          <i class="fas fa-star text-gold"></i> See More Reviews
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Us & Send Us a Message Section (FIXED & ENHANCED) -->
+  <section class="contact-section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag"><i class="fas fa-map-marker-alt"></i> Visit Us</span>
+        <h2>Contact Bhagirath Fabrication PVT. LTD</h2>
+        <p>We are located in Bharatpur, Chitwan. Visit our showroom or send us a message for direct inquiries.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-info-cards">
+          <div class="contact-info-card">
+            <i class="fas fa-location-dot"></i>
+            <div>
+              <h5>Showroom & Factory Location</h5>
+              <p>Bharatpur, Chitwan, Nepal (Near Lions Chowk / Main Highway)</p>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <i class="fas fa-phone"></i>
+            <div>
+              <h5>Phone & Direct WhatsApp</h5>
+              <p>9855083595 / 9866387790</p>
+              <span style="font-size:0.8rem; color:var(--color-primary); font-weight:700;">Available 6 Days a
+                Week</span>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <i class="fas fa-envelope"></i>
+            <div>
+              <h5>Email Address</h5>
+              <p>bhagirathngt@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="contact-info-card">
+            <i class="fas fa-shield-alt"></i>
+            <div>
+              <h5>NEPATOP Dealership Verification</h5>
+              <p>Certified Authorised Dealer in Chitwan district.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-box">
+          <h3 style="margin-bottom:6px; color:var(--color-primary);">
+            <i class="fas fa-paper-plane text-gold"></i> Send Us a Message
+          </h3>
+          <p style="font-size:0.875rem; color:var(--color-text-muted); margin-bottom:20px;">
+            Fill out the form below or chat directly on WhatsApp. Your message will be sent straight to our Admin team.
+          </p>
+
+          <!-- Success Banner -->
+          <div class="contact-success-banner" id="contactSuccessBanner">
+            <i class="fas fa-check-circle" style="font-size:1.2rem; margin-right:8px;"></i>
+            <span><strong>Message Sent Successfully!</strong> Thank you for contacting Bhagirath Fabrication. Our team
+              in Bharatpur will get back to you shortly.</span>
+          </div>
+
+          <form id="contactForm">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Full Name *</label>
+                <input type="text" id="contactName" class="form-control" placeholder="e.g. Ram Kumar" required>
+              </div>
+
+              <div class="form-group">
+                <label>Phone / WhatsApp *</label>
+                <input type="tel" id="contactPhone" class="form-control" placeholder="e.g. 9866387790" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Service Interest</label>
+              <select id="contactService" class="form-control">
+                <option value="UPVC Windows (Sliding/Casement)">UPVC Windows (Sliding/Casement)</option>
+                <option value="UPVC Doors (Main/Balcony)">UPVC Doors (Main/Balcony)</option>
+                <option value="UPVC Partitions (Office/Home)">UPVC Partitions (Office/Home)</option>
+                <option value="Free Site Measurement Visit">Free Site Measurement Visit</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Your Requirement / Message *</label>
+              <textarea id="contactMessage" class="form-control" rows="4"
+                placeholder="Describe what doors, windows, glass type, or partition dimensions you require in Chitwan..."
+                required></textarea>
+            </div>
+
+            <div style="display:flex; gap:12px; margin-top:10px; flex-wrap:wrap;">
+              <button type="submit" class="btn btn-gold" style="flex:1; min-width:180px;">
+                <i class="fas fa-paper-plane"></i> Send Message
+              </button>
+
+              <button type="button" onclick="sendViaWhatsApp()" class="btn btn-whatsapp"
+                style="flex:1; min-width:180px;">
+                <i class="fab fa-whatsapp" style="font-size:1.2rem;"></i> Chat on WhatsApp
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logos">
+            <img src="logo/logo.jpg" alt="Bhagirath Logo" onerror="this.style.display='none'">
+            <img src="logo/nepatop-logo.png" alt="NEPATOP Logo">
+          </div>
+          <p>
+            <strong>Bhagirath Fabrication PVT. LTD</strong> is an authorized dealer of <strong>NEPATOP</strong> based in
+            Bharatpur, Chitwan. We specialize in high-grade UPVC doors, windows, and partition fabrication with 25 years
+            profile guarantee & 2 years hardware warranty.
+          </p>
+          <div style="font-size:0.85rem; color:var(--color-gold);">
+            <i class="fas fa-check-circle"></i> 5 mm Heavy Duty Glass Fitment
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#guarantees">Guarantees</a></li>
+            <li><a href="#services">Our Services</a></li>
+            <li><a href="#work">Portfolio Gallery</a></li>
+            <li><a href="#" onclick="openModal('specsModal'); return false;">Our Specifications</a></li>
+            <li><a href="#reviews">Customer Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5>Our Products</h5>
+          <ul class="footer-links">
+            <li><a href="#services">UPVC Sliding Windows</a></li>
+            <li><a href="#services">UPVC Casement Windows</a></li>
+            <li><a href="#services">UPVC Main Doors</a></li>
+            <li><a href="#services">UPVC Balcony Doors</a></li>
+            <li><a href="#services">UPVC Office Partitions</a></li>
+            <li><a href="#services">5mm Glass Fittings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5>Admin Access</h5>
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin-bottom:14px;">
+            Authorized management login to approve user ratings and manage gallery photos.
+          </p>
+          <a href="admin.html" class="btn btn-gold btn-sm"><i class="fas fa-lock"></i> Admin Portal</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Bhagirath Fabrication PVT. LTD. Authorised NEPATOP Dealer, Bharatpur Chitwan.</span>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal 1: Write a Review Modal -->
+  <div class="modal-backdrop" id="reviewModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('reviewModal')">&times;</button>
+      <h3 style="margin-bottom:6px; color:var(--color-primary);">Write a Customer Review</h3>
+      <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:16px;">
+        Share your experience with Bhagirath Fabrication. Rating will be submitted to Admin for moderation.
+      </p>
+
+      <form id="reviewForm">
+        <div class="form-group" style="text-align:center;">
+          <label style="display:block; margin-bottom:4px;">Select Star Rating *</label>
+          <div class="interactive-star-picker" id="starPicker">
+            <i class="fas fa-star active" data-value="1"></i>
+            <i class="fas fa-star active" data-value="2"></i>
+            <i class="fas fa-star active" data-value="3"></i>
+            <i class="fas fa-star active" data-value="4"></i>
+            <i class="fas fa-star active" data-value="5"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="reviewAuthor" class="form-control" placeholder="e.g. Ram Bahadur" required>
+        </div>
+
+        <div class="form-group">
+          <label>Your Location / Address</label>
+          <input type="text" id="reviewLocation" class="form-control" placeholder="e.g. Bharatpur-10, Chitwan">
+        </div>
+
+        <div class="form-group">
+          <label>Service Provided</label>
+          <select id="reviewService" class="form-control">
+            <option value="UPVC Windows Installation">UPVC Windows Installation</option>
+            <option value="UPVC Doors Installation">UPVC Doors Installation</option>
+            <option value="UPVC Office Partition">UPVC Office Partition</option>
+            <option value="Full House UPVC Fitting">Full House UPVC Fitting</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Your Review Message *</label>
+          <textarea id="reviewComment" class="form-control" rows="3"
+            placeholder="Tell us about the quality of UPVC profiles, 5mm glass, and 2-yr hardware performance..."
+            required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          <i class="fas fa-paper-plane"></i> Submit Review For Admin Approval
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Technical Specifications Popup Modal -->
+  <div class="modal-backdrop" id="specsModal">
+    <div class="modal-content" style="max-width:700px;">
+      <button class="modal-close" onclick="closeModal('specsModal')">&times;</button>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+        <i class="fas fa-shield-alt text-gold" style="font-size:2rem;"></i>
+        <div>
+          <h3 style="color:var(--color-primary); margin:0;">Our Product Specifications</h3>
+          <span style="font-size:0.85rem; color:var(--color-text-muted);">Official NEPATOP Authorized Standards |
+            Bhagirath Fabrication</span>
+        </div>
+      </div>
+
+      <div class="spec-box-grid">
+        <div class="spec-box-item">
+          <i class="fas fa-shield-halved"></i>
+          <h4>25 Years Profile Guarantee</h4>
+          <p>Manufactured using high-density UV-stabilized UPVC compound that prevents yellowing, flaking, or warping
+            under Nepal's severe climate conditions.</p>
+        </div>
+
+        <div class="spec-box-item">
+          <i class="fas fa-wrench"></i>
+          <h4>2 Years Hardware Warranty</h4>
+          <p>Covers all functional components including multi-point locks, friction stays, steel rollers, gaskets, and
+            ergonomic handles.</p>
+        </div>
+
+        <div class="spec-box-item">
+          <i class="fas fa-layer-group"></i>
+          <h4>5 mm Premium Glass Standard</h4>
+          <p>Fitted with 5mm heavy-duty toughened float glass (available in Clear, Tinted, Frosted Privacy, or Double
+            Glazed options) providing acoustic soundproofing.</p>
+        </div>
+
+        <div class="spec-box-item">
+          <i class="fas fa-flag"></i>
+          <h4>NEPATOP Brand Quality</h4>
+          <p>Certified genuine NEPATOP profile extrusion ensuring dust-proof sealing, water-tight rain resistance, and
+            fire-retardant properties.</p>
+        </div>
+      </div>
+
+      <div
+        style="background:var(--color-primary-light); padding:16px; border-radius:var(--radius-md); text-align:center;">
+        <strong style="color:var(--color-primary); font-size:0.95rem;">Need custom measurements in Bharatpur or
+          Chitwan?</strong>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); margin-top:4px;">Visit our showroom or contact us at
+          +977 9866387790 for free site measurement.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Lightbox Modal -->
+  <div class="modal-backdrop" id="lightboxModal">
+    <div class="modal-content"
+      style="max-width:850px; padding:20px; background:#0F172A; color:#fff; text-align:center;">
+      <button class="modal-close" onclick="closeModal('lightboxModal')"
+        style="background:rgba(255,255,255,0.2); color:#fff;">&times;</button>
+      <img id="lightboxImg" src="" alt="Work Lightbox"
+        style="max-height:75vh; width:auto; max-width:100%; object-fit:contain; border-radius:var(--radius-md); margin:0 auto; display:block;">
+      <h4 id="lightboxTitle" style="margin-top:14px; color:var(--color-gold);"></h4>
+    </div>
+  </div>
+
+  <!-- Modal 4: Reusable Details Popup Modal -->
+  <div class="modal-backdrop" id="detailsModal">
+    <div class="modal-content" style="max-width:550px;">
+      <button class="modal-close" onclick="closeModal('detailsModal')">&times;</button>
+      <div id="detailsModalContent">
+        <!-- Filled dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main Website Script -->
+  <script src="js/app.js?v=1.1"></script>
+
+</body>
+
+</html>

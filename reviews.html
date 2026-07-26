@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Reviews & Feedback - Bhagirath Fabrication PVT. LTD | Authorised NEPATOP Dealer</title>
+  <meta name="description"
+    content="Read verified client ratings and reviews about Bhagirath Fabrication PVT. LTD. Authorised NEPATOP UPVC door, window, and partition installation services in Chitwan.">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="logo/logo.jpg">
+
+  <!-- Master Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css?v=1.1">
+</head>
+
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="top-bar">
+    <div class="container">
+      <div class="top-bar-info">
+        <span><i class="fas fa-map-marker-alt text-gold"></i> Bharatpur, Chitwan, Nepal</span>
+        <span><i class="fas fa-phone-alt text-gold"></i> +977 9866387790 / WhatsApp</span>
+        <span><i class="fas fa-shield-alt text-gold"></i> Authorised NEPATOP Dealer</span>
+      </div>
+      <div style="font-size:0.8rem; color:#F7E9AA; font-weight:600;">
+        <i class="fas fa-certificate"></i> Premium UPVC Fabrication
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <!-- Company Logos -->
+      <a href="index.html" class="brand-container">
+        <img src="logo/logo.jpg" alt="Bhagirath Fabrication PVT. LTD Logo" class="brand-logo-main"
+          onerror="this.style.display='none'">
+        <div class="brand-divider"></div>
+        <div class="brand-nepatop-container">
+          <img src="logo/nepatop-logo.png" alt="NEPATOP Logo" class="nepatop-logo">
+          <span class="nepatop-tag"><i class="fas fa-check-circle"></i> AUTHORISED DEALER</span>
+        </div>
+      </a>
+
+      <!-- Menu -->
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#guarantees" class="nav-link">Guarantees</a></li>
+        <li><a href="index.html#services" class="nav-link">Services</a></li>
+        <li><a href="works.html" class="nav-link">Our Work</a></li>
+        <li><a href="reviews.html" class="nav-link active">Customer Reviews</a></li>
+        <li><a href="index.html#contact" class="nav-link">Contact Us</a></li>
+      </ul>
+
+      <!-- Action Button -->
+      <div class="nav-buttons">
+        <a href="index.html#contact" class="btn btn-gold btn-sm"><i class="fas fa-calendar-check"></i> Book Site Visit</a>
+        <button class="mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Reviews Section Hero -->
+  <section class="hero" style="padding: 60px 0 40px 0; background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%); min-height: auto;">
+    <div class="container">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="tag"><i class="fas fa-star text-gold"></i> Client Satisfaction</span>
+        <h1>All Customer Reviews</h1>
+        <p>Verified client ratings and feedback. We are committed to rendering top-notch fabrication and service in Bharatpur, Chitwan.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Customer Reviews & Rating System Section -->
+  <section class="reviews-section" id="reviews" style="padding: 20px 0 100px 0;">
+    <div class="container">
+      <!-- Rating Summary Breakdown Box -->
+      <div class="reviews-summary-card">
+        <div class="rating-score-box">
+          <div class="rating-big-number" id="avgRatingNum">5.0</div>
+          <div class="star-rating-display" id="starsHeaderDisplay">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <div class="total-reviews-count" id="totalReviewsCount">Based on 3 verified client reviews</div>
+        </div>
+
+        <div class="rating-bars-container">
+          <div class="rating-bar-item">
+            <span>5 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar5" style="width: 100%;"></div>
+            </div>
+            <span id="starPercent5">100%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>4 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar4" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent4">0%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>3 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar3" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent3">0%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>2 Stars</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar2" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent2">0%</span>
+          </div>
+          <div class="rating-bar-item">
+            <span>1 Star</span>
+            <div class="rating-bar-bg">
+              <div class="rating-bar-fill" id="starBar1" style="width: 0%;"></div>
+            </div>
+            <span id="starPercent1">0%</span>
+          </div>
+        </div>
+
+        <div class="reviews-action-box">
+          <button class="btn btn-gold" onclick="openModal('reviewModal')">
+            <i class="fas fa-pen"></i> Write a Review
+          </button>
+          <p style="font-size:0.75rem; color:var(--color-text-muted); margin-top:8px;">
+            Submitted reviews go to Admin for approval
+          </p>
+        </div>
+      </div>
+
+      <!-- Approved Reviews Grid (renders completely without limits) -->
+      <div class="reviews-grid" id="reviewsGrid">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logos">
+            <img src="logo/logo.jpg" alt="Bhagirath Logo" onerror="this.style.display='none'">
+            <img src="logo/nepatop-logo.png" alt="NEPATOP Logo">
+          </div>
+          <p>
+            <strong>Bhagirath Fabrication PVT. LTD</strong> is an authorized dealer of <strong>NEPATOP</strong> based in
+            Bharatpur, Chitwan. We specialize in high-grade UPVC doors, windows, and partition fabrication with 25 years
+            profile guarantee & 2 years hardware warranty.
+          </p>
+          <div style="font-size:0.85rem; color:var(--color-gold);">
+            <i class="fas fa-check-circle"></i> 5 mm Heavy Duty Glass Fitment
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h5>Quick Links</h5>
+          <ul class="footer-links">
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#guarantees">Guarantees</a></li>
+            <li><a href="index.html#services">Our Services</a></li>
+            <li><a href="works.html">Portfolio Gallery</a></li>
+            <li><a href="#" onclick="openModal('specsModal'); return false;">Our Specifications</a></li>
+            <li><a href="reviews.html">Customer Reviews</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5>Our Products</h5>
+          <ul class="footer-links">
+            <li><a href="index.html#services">UPVC Sliding Windows</a></li>
+            <li><a href="index.html#services">UPVC Casement Windows</a></li>
+            <li><a href="index.html#services">UPVC Main Doors</a></li>
+            <li><a href="index.html#services">UPVC Balcony Doors</a></li>
+            <li><a href="index.html#services">UPVC Office Partitions</a></li>
+            <li><a href="index.html#services">5mm Glass Fittings</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h5>Admin Access</h5>
+          <p style="font-size:0.85rem; color:rgba(255,255,255,0.7); margin-bottom:14px;">
+            Authorized management login to approve user ratings and manage gallery photos.
+          </p>
+          <a href="admin.html" class="btn btn-gold btn-sm"><i class="fas fa-lock"></i> Admin Portal</a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>&copy; 2026 Bhagirath Fabrication PVT. LTD. Authorised NEPATOP Dealer, Bharatpur Chitwan.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal 1: Write a Review Modal -->
+  <div class="modal-backdrop" id="reviewModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="closeModal('reviewModal')">&times;</button>
+      <h3 style="margin-bottom:6px; color:var(--color-primary);">Write a Customer Review</h3>
+      <p style="font-size:0.85rem; color:var(--color-text-muted); margin-bottom:16px;">
+        Share your experience with Bhagirath Fabrication. Rating will be submitted to Admin for moderation.
+      </p>
+
+      <form id="reviewForm">
+        <div class="form-group" style="text-align:center;">
+          <label style="display:block; margin-bottom:4px;">Select Star Rating *</label>
+          <div class="interactive-star-picker" id="starPicker">
+            <i class="fas fa-star active" data-value="1"></i>
+            <i class="fas fa-star active" data-value="2"></i>
+            <i class="fas fa-star active" data-value="3"></i>
+            <i class="fas fa-star active" data-value="4"></i>
+            <i class="fas fa-star active" data-value="5"></i>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your Name *</label>
+          <input type="text" id="reviewAuthor" class="form-control" placeholder="e.g. Ram Bahadur" required>
+        </div>
+
+        <div class="form-group">
+          <label>Your Location / Address</label>
+          <input type="text" id="reviewLocation" class="form-control" placeholder="e.g. Bharatpur-10, Chitwan">
+        </div>
+
+        <div class="form-group">
+          <label>Service Provided</label>
+          <select id="reviewService" class="form-control">
+            <option value="UPVC Windows Installation">UPVC Windows Installation</option>
+            <option value="UPVC Doors Installation">UPVC Doors Installation</option>
+            <option value="UPVC Office Partition">UPVC Office Partition</option>
+            <option value="Full House UPVC Fitting">Full House UPVC Fitting</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Your Review Message *</label>
+          <textarea id="reviewComment" class="form-control" rows="3"
+            placeholder="Tell us about the quality of UPVC profiles, 5mm glass, and 2-yr hardware performance..."
+            required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          <i class="fas fa-paper-plane"></i> Submit Review For Admin Approval
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 2: Technical Specifications Popup Modal -->
+  <div class="modal-backdrop" id="specsModal">
+    <div class="modal-content" style="max-width:700px;">
+      <button class="modal-close" onclick="closeModal('specsModal')">&times;</button>
+      <div style="display:flex; align-items:center; gap:12px; margin-bottom:12px;">
+        <i class="fas fa-shield-alt text-gold" style="font-size:2rem;"></i>
+        <div>
+          <h3 style="color:var(--color-primary); margin:0;">Our Product Specifications</h3>
+          <span style="font-size:0.85rem; color:var(--color-text-muted);">Official NEPATOP Authorized Standards |
+            Bhagirath Fabrication</span>
+        </div>
+      </div>
+
+      <div class="spec-box-grid">
+        <div class="spec-box-item">
+          <i class="fas fa-shield-halved"></i>
+          <h4>25 Years Profile Guarantee</h4>
+          <p>Manufactured using high-density UV-stabilized UPVC compound that prevents yellowing, flaking, or warping
+            under Nepal's severe climate conditions.</p>
+        </div>
+
+        <div class="spec-box-item">
+          <i class="fas fa-wrench"></i>
+          <h4>2 Years Hardware Warranty</h4>
+          <p>Covers all functional components including multi-point locks, friction stays, steel rollers, gaskets, and
+            ergonomic handles.</p>
+        </div>
+
+        <div class="spec-box-item">
+          <i class="fas fa-layer-group"></i>
+          <h4>5 mm Premium Glass Standard</h4>
+          <p>Fitted with 5mm heavy-duty toughened float glass (available in Clear, Tinted, Frosted Privacy, or Double
+            Glazed options) providing acoustic soundproofing.</p>
+        </div>
+
+        <div class="spec-box-item">
+          <i class="fas fa-flag"></i>
+          <h4>NEPATOP Brand Quality</h4>
+          <p>Certified genuine NEPATOP profile extrusion ensuring dust-proof sealing, water-tight rain resistance, and
+            fire-retardant properties.</p>
+        </div>
+      </div>
+
+      <div
+        style="background:var(--color-primary-light); padding:16px; border-radius:var(--radius-md); text-align:center;">
+        <strong style="color:var(--color-primary); font-size:0.95rem;">Need custom measurements in Bharatpur or
+          Chitwan?</strong>
+        <p style="font-size:0.85rem; color:var(--color-text-muted); margin-top:4px;">Visit our showroom or contact us at
+          +977 9866387790 for free site measurement.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Reusable Details Popup Modal -->
+  <div class="modal-backdrop" id="detailsModal">
+    <div class="modal-content" style="max-width:550px;">
+      <button class="modal-close" onclick="closeModal('detailsModal')">&times;</button>
+      <div id="detailsModalContent">
+        <!-- Filled dynamically via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Main Website Script -->
+  <script src="js/app.js?v=1.1"></script>
+
+</body>
+
+</html>
