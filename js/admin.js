@@ -8,6 +8,18 @@ let isAdminAuthenticated = false;
 // Passcode (PIN) - Updated to bhagirath2026
 const ADMIN_PIN = "bhagirath2026";
 
+// Centralized Backend URL Configuration
+const API_URL = "http://localhost:5000/api";
+
+// Fetch options builder including admin headers
+function getAdminHeaders() {
+  const pin = sessionStorage.getItem('bhagirath_admin_pin') || ADMIN_PIN;
+  return {
+    'Content-Type': 'application/json',
+    'x-admin-pin': pin
+  };
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   // Check session storage
   if (sessionStorage.getItem('bhagirath_admin_auth') === 'true') {
@@ -73,19 +85,39 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Auth Handlers
-function handleLogin(e) {
+async function handleLogin(e) {
   if (e) e.preventDefault();
   const inputPin = document.getElementById('adminPinInput').value.trim();
   const errEl = document.getElementById('loginErrorMsg');
 
-  if (inputPin === ADMIN_PIN) {
-    isAdminAuthenticated = true;
-    sessionStorage.setItem('bhagirath_admin_auth', 'true');
-    showAdminDashboard();
-    showToast('Authenticated successfully. Welcome Admin!', 'success');
-  } else {
-    if (errEl) errEl.style.display = 'block';
-    showToast('Invalid Passcode. Passcode is "bhagirath2026"', 'danger');
+  try {
+    const res = await fetch(`${API_URL}/admin/verify-pin`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ pin: inputPin })
+    });
+    const data = await res.json();
+    if (data.success) {
+      isAdminAuthenticated = true;
+      sessionStorage.setItem('bhagirath_admin_auth', 'true');
+      sessionStorage.setItem('bhagirath_admin_pin', inputPin);
+      showAdminDashboard();
+      showToast('Authenticated successfully. Welcome Admin!', 'success');
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Backend pin verification failed, using local authentication:", err);
+    if (inputPin === ADMIN_PIN) {
+      isAdminAuthenticated = true;
+      sessionStorage.setItem('bhagirath_admin_auth', 'true');
+      sessionStorage.setItem('bhagirath_admin_pin', inputPin);
+      showAdminDashboard();
+      showToast('Authenticated locally. Welcome Admin!', 'success');
+    } else {
+      if (errEl) errEl.style.display = 'block';
+      showToast('Invalid Passcode. Passcode is "bhagirath2026"', 'danger');
+    }
   }
 }
 
@@ -112,53 +144,90 @@ function showAdminDashboard() {
 }
 
 // Refresh Data Renderers
-function refreshAdminData() {
-  renderStats();
-  renderAdminReviews();
-  renderAdminProjects();
-  renderAdminInquiries();
+async function refreshAdminData() {
+  await renderStats();
+  await renderAdminReviews();
+  await renderAdminProjects();
+  await renderAdminInquiries();
 }
 
 // Render Dashboard Stat Cards
-function renderStats() {
-  const reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
-  const projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
-  const inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
+async function renderStats() {
+  let stats = {
+    pendingReviews: 0,
+    approvedReviews: 0,
+    projects: 0,
+    inquiries: 0
+  };
 
-  const pendingCount = reviews.filter(r => r.status === 'pending').length;
-  const approvedCount = reviews.filter(r => r.status === 'approved').length;
+  try {
+    const res = await fetch(`${API_URL}/admin/stats`, {
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (data.success) {
+      stats = data.stats;
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Could not fetch server stats, calculating from local storage:", err);
+    const reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
+    const projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
+    const inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
+    stats = {
+      pendingReviews: reviews.filter(r => r.status === 'pending').length,
+      approvedReviews: reviews.filter(r => r.status === 'approved').length,
+      projects: projects.length,
+      inquiries: inquiries.length
+    };
+  }
 
   const pCount = document.getElementById('statPendingCount');
   const aCount = document.getElementById('statApprovedCount');
   const prCount = document.getElementById('statProjectCount');
   const inqCount = document.getElementById('statInquiryCount');
 
-  if (pCount) pCount.textContent = pendingCount;
-  if (aCount) aCount.textContent = approvedCount;
-  if (prCount) prCount.textContent = projects.length;
-  if (inqCount) inqCount.textContent = inquiries.length;
+  if (pCount) pCount.textContent = stats.pendingReviews;
+  if (aCount) aCount.textContent = stats.approvedReviews;
+  if (prCount) prCount.textContent = stats.projects;
+  if (inqCount) inqCount.textContent = stats.inquiries;
 
   // Nav badges
   const pendingBadge = document.getElementById('pendingNavBadge');
   if (pendingBadge) {
-    pendingBadge.textContent = pendingCount;
-    pendingBadge.style.display = pendingCount > 0 ? 'inline-block' : 'none';
+    pendingBadge.textContent = stats.pendingReviews;
+    pendingBadge.style.display = stats.pendingReviews > 0 ? 'inline-block' : 'none';
   }
 }
 
 // Render Reviews Moderation Table (ACCEPT / DECLINE Actions)
-function renderAdminReviews() {
+async function renderAdminReviews() {
   const container = document.getElementById('adminReviewsTableBody');
   if (!container) return;
 
-  const reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
   const filterVal = document.getElementById('reviewStatusFilter')?.value || 'all';
+  let reviews = [];
 
-  const filtered = filterVal === 'all' 
-    ? reviews 
-    : reviews.filter(r => r.status === filterVal);
+  try {
+    const res = await fetch(`${API_URL}/admin/reviews?status=${filterVal}`, {
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (data.success) {
+      reviews = data.reviews;
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Failed to fetch admin reviews, using local storage:", err);
+    const localReviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
+    reviews = filterVal === 'all' 
+      ? localReviews 
+      : localReviews.filter(r => r.status === filterVal);
+  }
 
-  if (filtered.length === 0) {
+  if (reviews.length === 0) {
     container.innerHTML = `
       <tr>
         <td colspan="6" style="text-align:center; padding:30px; color:var(--color-text-muted);">
@@ -169,7 +238,7 @@ function renderAdminReviews() {
     return;
   }
 
-  container.innerHTML = filtered.map(r => `
+  container.innerHTML = reviews.map(r => `
     <tr>
       <td>
         <div style="font-weight:700;">${escapeHtml(r.author)}</div>
@@ -219,43 +288,81 @@ function renderAdminReviews() {
 }
 
 // Update Review Status (Accept / Decline Handler)
-function updateReviewStatus(reviewId, newStatus) {
-  let reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
-  const idx = reviews.findIndex(r => r.id === reviewId);
-  if (idx !== -1) {
-    reviews[idx].status = newStatus;
-    localStorage.setItem('bhagirath_reviews', JSON.stringify(reviews));
-
-    // Dispatch event to update main website tab in real time
-    window.dispatchEvent(new Event('storage'));
-
-    refreshAdminData();
+async function updateReviewStatus(reviewId, newStatus) {
+  try {
+    const res = await fetch(`${API_URL}/admin/reviews/${reviewId}/status`, {
+      method: 'PUT',
+      headers: getAdminHeaders(),
+      body: JSON.stringify({ status: newStatus })
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
 
     if (newStatus === 'approved') {
       showToast('✅ Review ACCEPTED! It is now published live on the main website.', 'success');
     } else {
       showToast('⚠️ Review DECLINED.', 'warning');
     }
+  } catch (err) {
+    console.warn("Failed to update status on server, falling back to local storage:", err);
+    let reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
+    const idx = reviews.findIndex(r => String(r.id) === String(reviewId));
+    if (idx !== -1) {
+      reviews[idx].status = newStatus;
+      localStorage.setItem('bhagirath_reviews', JSON.stringify(reviews));
+      if (newStatus === 'approved') {
+        showToast('✅ Review ACCEPTED locally. (Server offline)', 'success');
+      } else {
+        showToast('⚠️ Review DECLINED locally. (Server offline)', 'warning');
+      }
+    }
   }
+
+  // Dispatch event to update main website tab in real time
+  window.dispatchEvent(new Event('storage'));
+  await refreshAdminData();
 }
 
 // Delete Review
-function deleteReview(reviewId) {
-  let reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
-  reviews = reviews.filter(r => r.id !== reviewId);
-  localStorage.setItem('bhagirath_reviews', JSON.stringify(reviews));
+async function deleteReview(reviewId) {
+  try {
+    const res = await fetch(`${API_URL}/admin/reviews/${reviewId}`, {
+      method: 'DELETE',
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
+    showToast('Review deleted permanently.', 'warning');
+  } catch (err) {
+    console.warn("Failed to delete review on server, falling back to local storage:", err);
+    let reviews = JSON.parse(localStorage.getItem('bhagirath_reviews') || '[]');
+    reviews = reviews.filter(r => String(r.id) !== String(reviewId));
+    localStorage.setItem('bhagirath_reviews', JSON.stringify(reviews));
+    showToast('Review deleted permanently from local storage.', 'warning');
+  }
 
   window.dispatchEvent(new Event('storage'));
-  refreshAdminData();
-  showToast('Review deleted permanently.', 'warning');
+  await refreshAdminData();
 }
 
 // Render Admin Portfolio / Work Grid
-function renderAdminProjects() {
+async function renderAdminProjects() {
   const container = document.getElementById('adminProjectsGrid');
   if (!container) return;
 
-  const projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
+  let projects = [];
+  try {
+    const res = await fetch(`${API_URL}/projects`);
+    const data = await res.json();
+    if (data.success) {
+      projects = data.projects;
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Failed to fetch admin projects, using local storage:", err);
+    projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
+  }
 
   if (projects.length === 0) {
     container.innerHTML = `
@@ -303,10 +410,8 @@ function handleAddProject(e) {
     return;
   }
 
-  function saveAndRender(imageDataUrl) {
-    const projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
-    const newProj = {
-      id: 'proj-' + Date.now(),
+  async function saveAndRender(imageDataUrl) {
+    const projectData = {
       title,
       category,
       location,
@@ -315,23 +420,40 @@ function handleAddProject(e) {
       date: new Date().toISOString().split('T')[0]
     };
 
-    projects.unshift(newProj);
-    localStorage.setItem('bhagirath_projects', JSON.stringify(projects));
+    try {
+      const res = await fetch(`${API_URL}/admin/projects`, {
+        method: 'POST',
+        headers: getAdminHeaders(),
+        body: JSON.stringify(projectData)
+      });
+      const data = await res.json();
+      if (!data.success) throw new Error(data.error);
+      showToast('🎨 New project added to Our Work section!', 'success');
+    } catch (err) {
+      console.warn("Failed to upload project to server, falling back to local storage:", err);
+      const projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
+      const newProj = {
+        id: 'proj-' + Date.now(),
+        ...projectData
+      };
+      projects.unshift(newProj);
+      localStorage.setItem('bhagirath_projects', JSON.stringify(projects));
+      showToast('🎨 Project saved locally. (Server offline)', 'success');
+    }
 
     // Dispatch event to update main website tab in real time
     window.dispatchEvent(new Event('storage'));
 
     document.getElementById('addProjectForm').reset();
     closeModal('addProjectModal');
-    refreshAdminData();
-    showToast('🎨 New project added to Our Work section!', 'success');
+    await refreshAdminData();
   }
 
   // Handle uploaded file if present
   if (fileInput && fileInput.files && fileInput.files[0]) {
     const reader = new FileReader();
-    reader.onload = function(evt) {
-      saveAndRender(evt.target.result);
+    reader.onload = async function(evt) {
+      await saveAndRender(evt.target.result);
     };
     reader.readAsDataURL(fileInput.files[0]);
   } else if (urlInput) {
@@ -342,24 +464,49 @@ function handleAddProject(e) {
 }
 
 // Delete Project Handler (Instant non-blocking delete)
-function deleteProject(projId) {
-  let projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
-  projects = projects.filter(p => String(p.id) !== String(projId));
-  localStorage.setItem('bhagirath_projects', JSON.stringify(projects));
+async function deleteProject(projId) {
+  try {
+    const res = await fetch(`${API_URL}/admin/projects/${projId}`, {
+      method: 'DELETE',
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
+    showToast('Project removed from portfolio successfully.', 'warning');
+  } catch (err) {
+    console.warn("Failed to delete project on server, falling back to local storage:", err);
+    let projects = JSON.parse(localStorage.getItem('bhagirath_projects') || '[]');
+    projects = projects.filter(p => String(p.id) !== String(projId));
+    localStorage.setItem('bhagirath_projects', JSON.stringify(projects));
+    showToast('Project removed locally. (Server offline)', 'warning');
+  }
 
   // Trigger cross-tab update
   window.dispatchEvent(new Event('storage'));
 
-  refreshAdminData();
-  showToast('Project removed from portfolio successfully.', 'warning');
+  await refreshAdminData();
 }
 
 // Render Inquiries Inbox
-function renderAdminInquiries() {
+async function renderAdminInquiries() {
   const container = document.getElementById('adminInquiriesTableBody');
   if (!container) return;
 
-  const inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
+  let inquiries = [];
+  try {
+    const res = await fetch(`${API_URL}/admin/inquiries`, {
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (data.success) {
+      inquiries = data.inquiries;
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Failed to fetch inquiries from server, using local storage:", err);
+    inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
+  }
 
   if (inquiries.length === 0) {
     container.innerHTML = `
@@ -404,23 +551,45 @@ function renderAdminInquiries() {
   `).join('');
 }
 
-function markInquiryDone(inqId) {
-  let inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
-  const idx = inquiries.findIndex(i => String(i.id) === String(inqId));
-  if (idx !== -1) {
-    inquiries[idx].status = 'done';
-    localStorage.setItem('bhagirath_inquiries', JSON.stringify(inquiries));
-    refreshAdminData();
+async function markInquiryDone(inqId) {
+  try {
+    const res = await fetch(`${API_URL}/admin/inquiries/${inqId}/done`, {
+      method: 'PUT',
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
     showToast('Inquiry marked as completed/done.', 'success');
+  } catch (err) {
+    console.warn("Failed to mark inquiry done on server, falling back to local storage:", err);
+    let inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
+    const idx = inquiries.findIndex(i => String(i.id) === String(inqId));
+    if (idx !== -1) {
+      inquiries[idx].status = 'done';
+      localStorage.setItem('bhagirath_inquiries', JSON.stringify(inquiries));
+      showToast('Inquiry marked done locally. (Server offline)', 'success');
+    }
   }
+  await refreshAdminData();
 }
 
-function deleteInquiry(inqId) {
-  let inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
-  inquiries = inquiries.filter(i => String(i.id) !== String(inqId));
-  localStorage.setItem('bhagirath_inquiries', JSON.stringify(inquiries));
-  refreshAdminData();
-  showToast('Inquiry cleared.', 'warning');
+async function deleteInquiry(inqId) {
+  try {
+    const res = await fetch(`${API_URL}/admin/inquiries/${inqId}`, {
+      method: 'DELETE',
+      headers: getAdminHeaders()
+    });
+    const data = await res.json();
+    if (!data.success) throw new Error(data.error);
+    showToast('Inquiry cleared.', 'warning');
+  } catch (err) {
+    console.warn("Failed to delete inquiry on server, falling back to local storage:", err);
+    let inquiries = JSON.parse(localStorage.getItem('bhagirath_inquiries') || '[]');
+    inquiries = inquiries.filter(i => String(i.id) !== String(inqId));
+    localStorage.setItem('bhagirath_inquiries', JSON.stringify(inquiries));
+    showToast('Inquiry cleared locally. (Server offline)', 'warning');
+  }
+  await refreshAdminData();
 }
 
 // Global functions binding

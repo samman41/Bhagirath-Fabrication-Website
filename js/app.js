@@ -4,59 +4,171 @@
 
 // Initial Seed Data
 const DEFAULT_PROJECTS = [
+  // --- Houses ---
   {
-    id: 'proj-1',
-    title: 'Modern Villa UPVC Casement Windows',
-    category: 'windows',
+    id: 'proj-h1',
+    title: 'Premium Villa Full UPVC House Fitting',
+    category: 'houses',
     location: 'Bharatpur-11, Chitwan',
-    description: 'Custom manufactured Nepatop 3-track sliding & casement UPVC windows with 5mm toughened glass.',
-    image: 'images/house 1.jpg',
+    description: 'Complete UPVC installation on modern villa featuring 25-year profile guarantee across all openings.',
+    image: 'home image/home 1.jpg',
     date: '2026-06-15'
   },
   {
-    id: 'proj-2',
-    title: 'Luxury Residence UPVC Main Entrance & Doors',
+    id: 'proj-h2',
+    title: 'Contemporary Duplex UPVC Glazing',
+    category: 'houses',
+    location: 'Narayangarh, Chitwan',
+    description: 'Full-house UPVC fitting for a duplex residence with 5mm toughened glass on every frame.',
+    image: 'home image/home 2.jpg',
+    date: '2026-05-28'
+  },
+  {
+    id: 'proj-h3',
+    title: 'Residential Bungalow UPVC Upgrade',
+    category: 'houses',
+    location: 'Bharatpur-7, Chitwan',
+    description: 'Replaced old aluminium frames with Nepatop UPVC profiles providing superior thermal insulation.',
+    image: 'home image/home 3.jpg',
+    date: '2026-05-10'
+  },
+  {
+    id: 'proj-h4',
+    title: 'Multi-Storey House UPVC Installation',
+    category: 'houses',
+    location: 'Gaindakot, Chitwan',
+    description: 'UPVC windows and doors installed across all floors of a 3-storey residential building.',
+    image: 'home image/home 4.jpg',
+    date: '2026-04-22'
+  },
+  {
+    id: 'proj-h5',
+    title: 'Modern Family Home UPVC Overhaul',
+    category: 'houses',
+    location: 'Ratnanagar, Chitwan',
+    description: 'Elegantly redesigned openings with frosted and clear UPVC glass for privacy and light control.',
+    image: 'home image/home 5.jpg',
+    date: '2026-03-30'
+  },
+  {
+    id: 'proj-h6',
+    title: 'Luxury Estate UPVC Full Package',
+    category: 'houses',
+    location: 'Bharatpur-4, Chitwan',
+    description: 'Premium estate fitted with full-range Nepatop UPVC doors, windows and partition solutions.',
+    image: 'home image/house 1.jpg',
+    date: '2026-03-15'
+  },
+  {
+    id: 'proj-h7',
+    title: 'Residential House UPVC Casement Windows',
+    category: 'houses',
+    location: 'Bharatpur-12, Chitwan',
+    description: 'Custom casement UPVC windows with mosquito mesh fitted on a family residence.',
+    image: 'home image/house 3.jpg',
+    date: '2026-02-20'
+  },
+  {
+    id: 'proj-h8',
+    title: 'Hill-View Villa UPVC Installation',
+    category: 'houses',
+    location: 'Tandi, Chitwan',
+    description: 'Full UPVC glazing on a hill-view residence to maximise natural light while minimising noise.',
+    image: 'home image/house 4.jpg',
+    date: '2026-02-05'
+  },
+  {
+    id: 'proj-h9',
+    title: 'Urban Home UPVC Renovation',
+    category: 'houses',
+    location: 'Lions Chowk, Bharatpur',
+    description: 'Complete renovation of an urban home\'s openings with Nepatop UV-stabilized UPVC profiles.',
+    image: 'home image/house 5.jpg',
+    date: '2026-01-28'
+  },
+  // --- Doors ---
+  {
+    id: 'proj-d1',
+    title: 'Heavy-Duty UPVC Main Entrance Door',
     category: 'doors',
     location: 'Narayangarh, Chitwan',
-    description: 'Heavy duty soundproof UPVC main door with multi-point locking system and 2-year warranty hardware.',
-    image: 'images/house 2.jpg',
-    date: '2026-05-20'
+    description: 'Soundproof UPVC main entrance door with multi-point locking system and 2-year hardware warranty.',
+    image: 'Door Image/Door 1.jpeg',
+    date: '2026-06-01'
   },
   {
-    id: 'proj-3',
-    title: 'Commercial Office Soundproof UPVC Partition',
-    category: 'partitions',
-    location: 'Lions Chowk, Bharatpur',
-    description: 'Sleek frosted 5mm glass UPVC wall partition designed for modern office acoustics.',
-    image: 'images/house 3.jpg',
-    date: '2026-04-10'
-  },
-  {
-    id: 'proj-4',
-    title: 'Contemporary Duplex Soundproof UPVC Glazing',
-    category: 'windows',
-    location: 'Gaindakot, Chitwan',
-    description: 'Full house UPVC profile fitting featuring 25-year profile guarantee against UV and weathering.',
-    image: 'images/house 4.jpg',
-    date: '2026-03-28'
-  },
-  {
-    id: 'proj-5',
-    title: 'Royal Villa Double Glazed UPVC Balcony Doors',
+    id: 'proj-d2',
+    title: 'Elegant Balcony UPVC Sliding Door',
     category: 'doors',
     location: 'Bharatpur-4, Chitwan',
-    description: 'Premium sliding balcony doors engineered with Nepatop high-grade UPVC profiles.',
-    image: 'images/house 5.jpg',
-    date: '2026-02-14'
+    description: 'Premium sliding balcony door engineered with heavy-duty Nepatop UPVC profiles and smooth rollers.',
+    image: 'Door Image/Door 2.jpeg',
+    date: '2026-04-18'
+  },
+  // --- Windows ---
+  {
+    id: 'proj-w1',
+    title: 'UPVC 3-Track Sliding Windows',
+    category: 'windows',
+    location: 'Bharatpur-11, Chitwan',
+    description: 'Custom 3-track sliding UPVC windows with 5mm toughened glass and insect mesh screens.',
+    image: 'Window Image/window 1.jpeg',
+    date: '2026-07-01'
   },
   {
-    id: 'proj-6',
-    title: 'Interior Living Space UPVC Frame Divider',
+    id: 'proj-w2',
+    title: 'Casement UPVC Windows Installation',
+    category: 'windows',
+    location: 'Gaindakot, Chitwan',
+    description: 'Casement UPVC windows fitted with friction stays and dust-proof gasket seals.',
+    image: 'Window Image/window 2.jpeg',
+    date: '2026-05-15'
+  },
+  {
+    id: 'proj-w3',
+    title: 'Commercial Building UPVC Windows',
+    category: 'windows',
+    location: 'Lions Chowk, Bharatpur',
+    description: 'Large-format UPVC windows with tinted 5mm glass installed on a commercial building facade.',
+    image: 'Window Image/window 3.jpeg',
+    date: '2026-03-10'
+  },
+  // --- Partitions ---
+  {
+    id: 'proj-p1',
+    title: 'Frosted Glass UPVC Office Partition',
+    category: 'partitions',
+    location: 'Lions Chowk, Bharatpur',
+    description: 'Sleek frosted 5mm glass UPVC wall partition for modern office acoustics and privacy.',
+    image: 'Partation Image/Partation 1.jpeg',
+    date: '2026-06-20'
+  },
+  {
+    id: 'proj-p2',
+    title: 'Commercial Showroom UPVC Partition',
+    category: 'partitions',
+    location: 'Bharatpur-10, Chitwan',
+    description: 'Transparent UPVC glass partition wall dividing a commercial showroom into functional zones.',
+    image: 'Partation Image/Partation 2.jpeg',
+    date: '2026-05-05'
+  },
+  {
+    id: 'proj-p3',
+    title: 'Interior Space UPVC Frame Divider',
     category: 'partitions',
     location: 'Tandi, Chitwan',
     description: 'Aesthetic partition wall integrating transparent 5mm glass panels with gold tone accessories.',
-    image: 'images/house 6.jpg',
-    date: '2026-01-30'
+    image: 'Partation Image/Partation 3.jpeg',
+    date: '2026-03-25'
+  },
+  {
+    id: 'proj-p4',
+    title: 'Home Studio Glass Partition',
+    category: 'partitions',
+    location: 'Bharatpur-6, Chitwan',
+    description: 'Elegant home studio UPVC partition with soundproof glass for a quiet work-from-home space.',
+    image: 'Partation Image/house 6.jpg',
+    date: '2026-02-12'
   }
 ];
 
@@ -92,6 +204,17 @@ const DEFAULT_REVIEWS = [
     status: 'approved'
   }
 ];
+
+// Centralized Backend URL Configuration
+const API_URL = "http://localhost:5000/api";
+
+// Local Caches for Centralized Data
+let currentReviews = [];
+let currentProjects = [];
+
+// Gallery State
+let galleryShowAll = false;
+const GALLERY_INITIAL_LIMIT = 6;
 
 // LocalStorage Helpers
 function getStoredReviews() {
@@ -198,6 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
       e.target.classList.add('active');
       const cat = e.target.getAttribute('data-filter');
+      galleryShowAll = false; // Reset to initial 6-image view on tab switch
       renderProjects(cat);
     });
   });
@@ -230,33 +354,52 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Render Projects Gallery
-function renderProjects(category = 'all') {
+async function renderProjects(category = 'all', forceShowAll = null) {
   const container = document.getElementById('galleryContainer');
+  const moreBtn = document.getElementById('galleryMoreBtn');
   if (!container) return;
 
-  const projects = getStoredProjects();
-  const filtered = category === 'all' 
-    ? projects 
-    : projects.filter(p => p.category.toLowerCase() === category.toLowerCase());
+  // Use backend if available, otherwise fall back to defaults
+  if (currentProjects.length === 0) {
+    try {
+      const res = await fetch(`${API_URL}/projects`);
+      const data = await res.json();
+      if (data.success) {
+        currentProjects = data.projects;
+      } else {
+        throw new Error(data.error);
+      }
+    } catch (err) {
+      console.warn("Backend unavailable, using default/local storage projects:", err);
+      currentProjects = DEFAULT_PROJECTS;
+    }
+  }
 
-  const limit = container.getAttribute('data-limit') ? parseInt(container.getAttribute('data-limit'), 10) : null;
-  const toRender = limit ? filtered.slice(0, limit) : filtered;
+  const filtered = category === 'all'
+    ? currentProjects
+    : currentProjects.filter(p => p.category.toLowerCase() === category.toLowerCase());
 
-  if (toRender.length === 0) {
+  // Determine show state
+  if (forceShowAll !== null) galleryShowAll = forceShowAll;
+  const toRender = galleryShowAll ? filtered : filtered.slice(0, GALLERY_INITIAL_LIMIT);
+  const hasMore = filtered.length > GALLERY_INITIAL_LIMIT;
+
+  if (filtered.length === 0) {
     container.innerHTML = `
       <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--color-text-muted);">
         <i class="fas fa-images" style="font-size:3rem; margin-bottom:12px; color:var(--color-gold);"></i>
         <p>No projects found in this category yet.</p>
       </div>
     `;
+    if (moreBtn) moreBtn.style.display = 'none';
     return;
   }
 
   container.innerHTML = toRender.map(item => `
     <div class="work-card">
       <div class="work-image-box">
-        <img src="${item.image}" alt="${escapeHtml(item.title)}" onerror="this.src='images/house 1.jpg'">
-        <span class="work-badge">${escapeHtml(item.category)}</span>
+        <img src="${item.image}" alt="${escapeHtml(item.title)}" loading="lazy" onerror="this.parentElement.style.background='var(--color-primary-light)'">
+        <span class="work-badge work-badge-${item.category}">${getCategoryLabel(item.category)}</span>
         <button class="work-overlay-btn" onclick="openLightbox('${item.image}', '${escapeHtml(item.title)}')">
           <i class="fas fa-expand-alt"></i>
         </button>
@@ -271,15 +414,112 @@ function renderProjects(category = 'all') {
       </div>
     </div>
   `).join('');
+
+  // Update the Load More / View All button
+  if (moreBtn) {
+    if (hasMore) {
+      moreBtn.style.display = 'inline-flex';
+      moreBtn.innerHTML = `<i class="fas fa-th"></i> View All Images <span class="fgm-count-badge">${filtered.length}</span>`;
+      moreBtn.classList.remove('btn-collapse');
+    } else {
+      moreBtn.style.display = 'none';
+    }
+  }
 }
 
+// Category display label helper
+function getCategoryLabel(cat) {
+  const labels = {
+    houses: '🏠 House',
+    windows: '🪟 Window',
+    doors: '🚪 Door',
+    partitions: '🔲 Partition'
+  };
+  return labels[cat.toLowerCase()] || cat;
+}
+
+// Open the full-screen gallery modal
+function openFullGallery(startCategory = 'all') {
+  openModal('fullGalleryModal');
+  renderFullGallery(startCategory);
+
+  // Set the active tab
+  document.querySelectorAll('.fgm-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.getAttribute('data-cat') === startCategory);
+  });
+
+  // Wire up tab clicks
+  document.querySelectorAll('.fgm-tab').forEach(tab => {
+    tab.onclick = () => {
+      document.querySelectorAll('.fgm-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      renderFullGallery(tab.getAttribute('data-cat'));
+    };
+  });
+
+  // Scroll gallery panel back to top
+  const panel = document.querySelector('.full-gallery-panel');
+  if (panel) panel.scrollTop = 0;
+}
+
+// Render images inside the full gallery modal
+function renderFullGallery(category = 'all') {
+  const grid = document.getElementById('fgmGrid');
+  const countEl = document.getElementById('fgmCount');
+  if (!grid) return;
+
+  const filtered = category === 'all'
+    ? currentProjects
+    : currentProjects.filter(p => p.category.toLowerCase() === category.toLowerCase());
+
+  if (countEl) {
+    const catLabel = category === 'all' ? 'All Categories' : getCategoryLabel(category);
+    countEl.textContent = `${filtered.length} project${filtered.length !== 1 ? 's' : ''} · ${catLabel}`;
+  }
+
+  if (filtered.length === 0) {
+    grid.innerHTML = `
+      <div class="fgm-empty">
+        <i class="fas fa-images"></i>
+        <p>No projects found in this category yet.</p>
+      </div>
+    `;
+    return;
+  }
+
+  grid.innerHTML = filtered.map(item => `
+    <div class="fgm-item"
+         onclick="openLightbox('${item.image}', '${escapeHtml(item.title)}')"
+         title="${escapeHtml(item.title)}">
+      <img src="${item.image}"
+           alt="${escapeHtml(item.title)}"
+           loading="lazy"
+           onerror="this.parentElement.classList.add('fgm-item--broken')">
+    </div>
+  `).join('');
+}
+
+window.openFullGallery = openFullGallery;
+
 // Render Customer Reviews & Rating Summary
-function renderReviews() {
+async function renderReviews() {
   const container = document.getElementById('reviewsGrid');
   if (!container) return;
 
-  const allReviews = getStoredReviews();
-  const approved = allReviews.filter(r => r.status === 'approved');
+  try {
+    const res = await fetch(`${API_URL}/reviews`);
+    const data = await res.json();
+    if (data.success) {
+      currentReviews = data.reviews;
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Backend unavailable, using default/local storage reviews:", err);
+    currentReviews = getStoredReviews().filter(r => r.status === 'approved');
+  }
+
+  const approved = currentReviews;
 
   // Compute Metrics
   const total = approved.length;
@@ -384,7 +624,7 @@ function updateStarPickerUI(rating) {
 }
 
 // Handle Review Submit (User Submits -> Goes to Pending for Admin)
-function handleReviewSubmit(e) {
+async function handleReviewSubmit(e) {
   e.preventDefault();
   const author = document.getElementById('reviewAuthor').value.trim();
   const location = document.getElementById('reviewLocation').value.trim();
@@ -396,34 +636,53 @@ function handleReviewSubmit(e) {
     return;
   }
 
-  const newReview = {
-    id: 'rev-' + Date.now(),
+  const reviewData = {
     author,
     location: location || 'Bharatpur, Chitwan',
     rating: selectedRating,
     service: service || 'UPVC Windows & Doors',
     comment,
-    date: new Date().toISOString().split('T')[0],
-    status: 'pending' // Admin must accept
+    date: new Date().toISOString().split('T')[0]
   };
 
-  const reviews = getStoredReviews();
-  reviews.unshift(newReview);
-  localStorage.setItem('bhagirath_reviews', JSON.stringify(reviews));
-
-  // Trigger cross-tab sync event
-  window.dispatchEvent(new Event('storage'));
+  try {
+    const res = await fetch(`${API_URL}/reviews`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(reviewData)
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast('✨ Thank you! Your review was submitted and is pending Admin approval.', 'success');
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Backend submit failed, falling back to local storage:", err);
+    const newReview = {
+      id: 'rev-' + Date.now(),
+      ...reviewData,
+      status: 'pending'
+    };
+    const reviews = getStoredReviews();
+    reviews.unshift(newReview);
+    localStorage.setItem('bhagirath_reviews', JSON.stringify(reviews));
+    showToast('✨ Submitted locally! (Server offline) Review is pending Admin approval.', 'success');
+  }
 
   closeModal('reviewModal');
   document.getElementById('reviewForm').reset();
   updateStarPickerUI(5);
   selectedRating = 5;
 
-  showToast('✨ Thank you! Your review was submitted and is pending Admin approval.', 'success');
+  // Trigger UI updates
+  await renderReviews();
 }
 
 // Contact Form Handler
-function handleContactSubmit(e) {
+async function handleContactSubmit(e) {
   e.preventDefault();
   const name = document.getElementById('contactName').value.trim();
   const phone = document.getElementById('contactPhone').value.trim();
@@ -435,27 +694,48 @@ function handleContactSubmit(e) {
     return;
   }
 
-  saveInquiry({
-    id: 'inq-' + Date.now(),
+  const inquiryData = {
     type: service,
     name,
     phone,
     details: message,
-    date: new Date().toISOString().split('T')[0],
-    status: 'pending'
-  });
+    date: new Date().toISOString().split('T')[0]
+  };
+
+  try {
+    const res = await fetch(`${API_URL}/inquiries`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(inquiryData)
+    });
+    const data = await res.json();
+    if (data.success) {
+      showToast('✅ Message received! Thank you for reaching out to Bhagirath Fabrication.', 'success');
+    } else {
+      throw new Error(data.error);
+    }
+  } catch (err) {
+    console.warn("Backend inquiry failed, falling back to local storage:", err);
+    saveInquiry({
+      id: 'inq-' + Date.now(),
+      ...inquiryData,
+      status: 'pending'
+    });
+    showToast('✅ Message saved locally! (Server offline) Thank you for reaching out.', 'success');
+  }
 
   // Dispatch storage event to sync with open admin portal tabs instantly
   window.dispatchEvent(new Event('storage'));
 
-  // Show inline success banner & toast
+  // Show inline success banner
   const banner = document.getElementById('contactSuccessBanner');
   if (banner) {
     banner.style.display = 'block';
     setTimeout(() => { banner.style.display = 'none'; }, 8000);
   }
 
-  showToast('✅ Message received! Thank you for reaching out to Bhagirath Fabrication.', 'success');
   document.getElementById('contactForm').reset();
 }
 
@@ -581,8 +861,7 @@ function showSpecDetails(key) {
 }
 
 function showReviewDetails(reviewId) {
-  const allReviews = getStoredReviews();
-  const r = allReviews.find(rev => String(rev.id) === String(reviewId));
+  const r = currentReviews.find(rev => String(rev.id) === String(reviewId));
   if (!r) return;
 
   const html = `

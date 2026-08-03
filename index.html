@@ -103,8 +103,8 @@
 
         <div class="hero-image-wrapper">
           <div class="hero-main-card">
-            <img src="images/house 4.jpg" alt="Bhagirath UPVC House Installation in Chitwan"
-              onerror="this.src='images/house 1.jpg'">
+            <img src="home image/house 4.jpg" alt="Bhagirath UPVC House Installation in Chitwan"
+              onerror="this.src='home image/home 1.jpg'">
 
             <div class="hero-floating-dealer">
               <img src="logo/nepatop-logo.png" alt="NEPATOP Logo" style="height:28px;">
@@ -247,21 +247,22 @@
       <!-- Gallery Filters -->
       <div class="gallery-filters">
         <button class="filter-btn active" data-filter="all">All Work</button>
-        <button class="filter-btn" data-filter="windows">UPVC Windows</button>
-        <button class="filter-btn" data-filter="doors">UPVC Doors</button>
-        <button class="filter-btn" data-filter="partitions">Partitions</button>
+        <button class="filter-btn" data-filter="houses">🏠 Houses</button>
+        <button class="filter-btn" data-filter="windows">🪟 UPVC Windows</button>
+        <button class="filter-btn" data-filter="doors">🚪 UPVC Doors</button>
+        <button class="filter-btn" data-filter="partitions">🔲 Partitions</button>
       </div>
+
 
       <!-- Dynamic Gallery Grid -->
-      <div class="gallery-grid" id="galleryContainer" data-limit="6">
-        <!-- Rendered dynamically -->
-      </div>
+      <div class="gallery-grid" id="galleryContainer"></div>
 
-      <!-- See More Gallery Button -->
-      <div class="gallery-see-more" style="text-align: center; margin-top: 40px;">
-        <a href="works.html" class="btn btn-outline">
-          <i class="fas fa-images"></i> See More Works
-        </a>
+      <!-- Load More Images Button -->
+      <div class="gallery-see-more" style="text-align: center; margin-top: 48px;">
+        <button id="galleryMoreBtn" class="btn btn-gold gallery-more-btn" style="display:none;"
+          onclick="openFullGallery(document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all')">
+          <i class="fas fa-th"></i> View All Images
+        </button>
       </div>
     </div>
   </section>
@@ -642,6 +643,45 @@
       <div id="detailsModalContent">
         <!-- Filled dynamically via JS -->
       </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Full Gallery Modal (Opens on "View All Images") -->
+  <div class="modal-backdrop" id="fullGalleryModal"
+       onclick="if(event.target===this) closeModal('fullGalleryModal')">
+    <div class="full-gallery-panel">
+
+      <!-- Gallery Modal Header -->
+      <div class="fgm-header">
+        <div class="fgm-title-group">
+          <i class="fas fa-images" style="color: var(--color-gold); font-size:1.4rem;"></i>
+          <div>
+            <h3 class="fgm-title">Our Complete Project Gallery</h3>
+            <p class="fgm-subtitle">Browse all completed UPVC works by Bhagirath Fabrication</p>
+          </div>
+        </div>
+        <button class="fgm-close-btn" onclick="closeModal('fullGalleryModal')">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="fgm-tabs" id="fgmTabs">
+        <button class="fgm-tab active" data-cat="all">All Work</button>
+        <button class="fgm-tab" data-cat="houses">🏠 Houses</button>
+        <button class="fgm-tab" data-cat="windows">🪟 Windows</button>
+        <button class="fgm-tab" data-cat="doors">🚪 Doors</button>
+        <button class="fgm-tab" data-cat="partitions">🔲 Partitions</button>
+      </div>
+
+      <!-- Count Indicator -->
+      <div class="fgm-count" id="fgmCount"></div>
+
+      <!-- Masonry Gallery Grid -->
+      <div class="fgm-grid" id="fgmGrid">
+        <!-- Populated dynamically -->
+      </div>
+
     </div>
   </div>
 

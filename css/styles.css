@@ -797,6 +797,46 @@ button {
   font-weight: 600;
 }
 
+/* Category badge color variants */
+.work-badge-houses  { background: rgba(13, 92, 58, 0.92); }
+.work-badge-windows { background: rgba(37, 99, 235, 0.92); }
+.work-badge-doors   { background: rgba(180, 83, 9, 0.92); }
+.work-badge-partitions { background: rgba(109, 40, 217, 0.92); }
+
+/* Gallery Load More Button */
+.gallery-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  border: none;
+  background: var(--gold-gradient);
+  color: #0F172A;
+  cursor: pointer;
+  box-shadow: var(--shadow-gold);
+  transition: var(--transition);
+  letter-spacing: 0.02em;
+}
+
+.gallery-more-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(212, 175, 55, 0.4);
+}
+
+.gallery-more-btn.btn-collapse {
+  background: var(--bg-tertiary);
+  color: var(--color-text-main);
+  box-shadow: none;
+}
+
+.gallery-more-btn.btn-collapse:hover {
+  background: var(--color-border);
+  box-shadow: none;
+}
+
 /* Customer Reviews & Star Rating System */
 .reviews-section {
   padding: 100px 0;
@@ -1873,5 +1913,263 @@ footer {
   .brand-divider,
   .brand-nepatop-container {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Full Gallery Modal (Modal 5) — Clean & Simple
+   ========================================================================== */
+
+/* The backdrop for the gallery sits at 2000 (same as other modals) */
+/* The LIGHTBOX sits at 4000 so it always floats above the gallery */
+#lightboxModal {
+  z-index: 4000 !important;
+}
+
+/* Full gallery panel slides up from bottom */
+#fullGalleryModal {
+  align-items: flex-end !important;
+  padding: 0 !important;
+}
+
+.full-gallery-panel {
+  width: 100%;
+  height: 92vh;
+  background: #F8FAFC;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 0.38s cubic-bezier(0.32, 0, 0.2, 1);
+  box-shadow: 0 -12px 40px rgba(0, 0, 0, 0.18);
+}
+
+#fullGalleryModal.active .full-gallery-panel {
+  transform: translateY(0);
+}
+
+/* ---- Header ---- */
+.fgm-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.fgm-title-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fgm-title {
+  font-size: 1.25rem;
+  color: var(--color-primary);
+  margin: 0;
+}
+
+.fgm-subtitle {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin: 3px 0 0;
+}
+
+.fgm-close-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg-tertiary);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.fgm-close-btn:hover {
+  background: #FEE2E2;
+  color: var(--color-danger);
+  border-color: var(--color-danger);
+}
+
+/* ---- Category Tabs ---- */
+.fgm-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 12px 28px;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.fgm-tabs::-webkit-scrollbar { display: none; }
+
+.fgm-tab {
+  padding: 7px 18px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  background: #FFFFFF;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.fgm-tab:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+}
+
+.fgm-tab.active {
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border-color: var(--color-primary);
+}
+
+/* ---- Count label ---- */
+.fgm-count {
+  padding: 8px 28px 0;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+  flex-shrink: 0;
+  letter-spacing: 0.01em;
+}
+
+/* ---- Photo Grid ---- */
+.fgm-grid {
+  flex: 1;
+  min-height: 0;          /* CRITICAL: lets flex child scroll instead of expanding */
+  overflow-y: auto;
+  padding: 16px 20px 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 200px;  /* Fixed row height — images never stack */
+  gap: 12px;
+  align-content: start;
+}
+
+/* ---- Each photo tile ---- */
+.fgm-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #E2E8F0;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  /* height is controlled by grid-auto-rows — no aspect-ratio needed */
+}
+
+.fgm-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+}
+
+.fgm-item:active {
+  transform: scale(0.97);
+}
+
+.fgm-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 0.3s ease;
+  pointer-events: none; /* so clicks go to the parent div, not the img */
+}
+
+.fgm-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Simple expand icon — appears on hover */
+.fgm-item::after {
+  content: '\f065';  /* fa-expand-arrows-alt */
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.6);
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  opacity: 0;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+  line-height: 44px;
+  text-align: center;
+}
+
+.fgm-item:hover::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* ---- Empty state ---- */
+.fgm-empty {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--color-text-muted);
+}
+
+.fgm-empty i {
+  font-size: 3rem;
+  color: var(--color-gold);
+  display: block;
+  margin-bottom: 14px;
+}
+
+/* ---- Count badge on the main 'View All' button ---- */
+.fgm-count-badge {
+  background: rgba(0,0,0,0.18);
+  color: #0F172A;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+  margin-left: 6px;
+}
+
+/* ---- Mobile ---- */
+@media (max-width: 768px) {
+  .full-gallery-panel {
+    height: 96vh;
+    border-radius: 16px 16px 0 0;
+  }
+
+  .fgm-header { padding: 14px 16px; }
+  .fgm-subtitle { display: none; }
+  .fgm-tabs { padding: 10px 12px; gap: 6px; }
+  .fgm-count { padding: 6px 16px 0; }
+
+  .fgm-grid {
+    padding: 12px 10px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 150px;
+    gap: 8px;
   }
 }
