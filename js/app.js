@@ -86,6 +86,33 @@ const DEFAULT_PROJECTS = [
     image: 'home image/house 5.jpg',
     date: '2026-01-28'
   },
+  {
+    id: 'proj-h10',
+    title: 'Modern Residence Full UPVC Glazing',
+    category: 'houses',
+    location: 'Bharatpur-8, Chitwan',
+    description: 'Beautiful modern home fitted with complete Nepatop UPVC windows and doors across all floors.',
+    image: 'home image/home 66.png',
+    date: '2026-07-20'
+  },
+  {
+    id: 'proj-h11',
+    title: 'New Build House UPVC Package',
+    category: 'houses',
+    location: 'Bharatpur-15, Chitwan',
+    description: 'Brand new residential construction fitted with full UPVC profile package including 5mm glass fitment.',
+    image: 'home image/home 7.png',
+    date: '2026-07-26'
+  },
+  {
+    id: 'proj-h12',
+    title: 'Contemporary Family Home Installation',
+    category: 'houses',
+    location: 'Bharatpur-2, Chitwan',
+    description: 'Elegant contemporary home with premium Nepatop UPVC windows offering superior thermal and sound insulation.',
+    image: 'home image/home 8.png',
+    date: '2026-08-02'
+  },
   // --- Doors ---
   {
     id: 'proj-d1',
@@ -104,6 +131,33 @@ const DEFAULT_PROJECTS = [
     description: 'Premium sliding balcony door engineered with heavy-duty Nepatop UPVC profiles and smooth rollers.',
     image: 'Door Image/Door 2.jpeg',
     date: '2026-04-18'
+  },
+  {
+    id: 'proj-d3',
+    title: 'Modern UPVC Interior Door',
+    category: 'doors',
+    location: 'Bharatpur-9, Chitwan',
+    description: 'Stylish interior UPVC door with 5mm toughened glass panel and multi-point locking system.',
+    image: 'Door Image/Door 33.png',
+    date: '2026-07-10'
+  },
+  {
+    id: 'proj-d4',
+    title: 'Premium UPVC Main Entrance Door',
+    category: 'doors',
+    location: 'Ratnanagar, Chitwan',
+    description: 'Heavy-duty UPVC main entrance door offering excellent thermal insulation and UV protection.',
+    image: 'Door Image/Door 44.png',
+    date: '2026-07-18'
+  },
+  {
+    id: 'proj-d5',
+    title: 'Luxury UPVC French Door Installation',
+    category: 'doors',
+    location: 'Narayangarh, Chitwan',
+    description: 'Elegant French-style UPVC door with frosted glass, termite-proof and weather-resistant design.',
+    image: 'Door Image/Door 55.png',
+    date: '2026-07-25'
   },
   // --- Windows ---
   {
@@ -132,6 +186,15 @@ const DEFAULT_PROJECTS = [
     description: 'Large-format UPVC windows with tinted 5mm glass installed on a commercial building facade.',
     image: 'Window Image/window 3.jpeg',
     date: '2026-03-10'
+  },
+  {
+    id: 'proj-w4',
+    title: 'Premium UPVC Tinted Glass Windows',
+    category: 'windows',
+    location: 'Bharatpur-5, Chitwan',
+    description: 'Large panoramic UPVC windows with premium tinted 5mm glass for heat and glare reduction.',
+    image: 'Window Image/window 44.png',
+    date: '2026-07-30'
   },
   // --- Partitions ---
   {
@@ -169,8 +232,27 @@ const DEFAULT_PROJECTS = [
     description: 'Elegant home studio UPVC partition with soundproof glass for a quiet work-from-home space.',
     image: 'Partation Image/house 6.jpg',
     date: '2026-02-12'
+  },
+  {
+    id: 'proj-p5',
+    title: 'Modern Office Glass Partition Wall',
+    category: 'partitions',
+    location: 'Bharatpur-3, Chitwan',
+    description: 'Premium full-height UPVC glass partition creating elegant workspace divisions in a corporate office.',
+    image: 'Partation Image/Partation 44.png',
+    date: '2026-07-28'
+  },
+  {
+    id: 'proj-p6',
+    title: 'Showroom UPVC Partition with Gold Trim',
+    category: 'partitions',
+    location: 'Narayangarh, Chitwan',
+    description: 'Sophisticated showroom partition featuring gold-accent UPVC framing and clear 5mm glass panels.',
+    image: 'Partation Image/Partation 55.png',
+    date: '2026-08-01'
   }
 ];
+
 
 const DEFAULT_REVIEWS = [
   {
@@ -227,9 +309,14 @@ function getStoredReviews() {
 }
 
 function getStoredProjects() {
+  const VERSION_KEY = 'bhagirath_projects_v';
+  const CURRENT_VERSION = DEFAULT_PROJECTS.length.toString();
+  const storedVersion = localStorage.getItem(VERSION_KEY);
   const data = localStorage.getItem('bhagirath_projects');
-  if (!data) {
+  // If no data or version mismatch (new images added), reset to defaults
+  if (!data || storedVersion !== CURRENT_VERSION) {
     localStorage.setItem('bhagirath_projects', JSON.stringify(DEFAULT_PROJECTS));
+    localStorage.setItem(VERSION_KEY, CURRENT_VERSION);
     return DEFAULT_PROJECTS;
   }
   return JSON.parse(data);
