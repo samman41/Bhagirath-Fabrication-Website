@@ -193,7 +193,7 @@ const DEFAULT_PROJECTS = [
     category: 'windows',
     location: 'Bharatpur-5, Chitwan',
     description: 'Large panoramic UPVC windows with premium tinted 5mm glass for heat and glare reduction.',
-    image: 'Window Image/window 4.jpg',
+    image: 'Window Image/window 44.jpg',
     date: '2026-07-30'
   },
   // --- Partitions ---
