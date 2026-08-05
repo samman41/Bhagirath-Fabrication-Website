@@ -193,7 +193,7 @@ const DEFAULT_PROJECTS = [
     category: 'windows',
     location: 'Bharatpur-5, Chitwan',
     description: 'Large panoramic UPVC windows with premium tinted 5mm glass for heat and glare reduction.',
-    image: 'Window Image/window 44.png',
+    image: 'Window Image/window 4.jpg',
     date: '2026-07-30'
   },
   // --- Partitions ---
@@ -340,7 +340,7 @@ function showToast(message, type = 'success') {
 
   const toast = document.createElement('div');
   toast.className = `toast toast-${type}`;
-  
+
   let iconClass = 'fa-check-circle';
   if (type === 'warning') iconClass = 'fa-exclamation-triangle';
   if (type === 'danger') iconClass = 'fa-times-circle';
@@ -630,7 +630,7 @@ async function renderReviews() {
 
   if (scoreNum) scoreNum.textContent = avgRating;
   if (totalCountEl) totalCountEl.textContent = `Based on ${total} verified client review${total === 1 ? '' : 's'}`;
-  
+
   if (starsHeader) {
     const starVal = Math.round(parseFloat(avgRating));
     starsHeader.innerHTML = getStarHTML(starVal);
@@ -834,7 +834,7 @@ function sendViaWhatsApp() {
   const message = document.getElementById('contactMessage').value.trim() || 'I am interested in UPVC doors/windows';
 
   const text = `Namaste Bhagirath Fabrication!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(phone)}%0A*Interest:* ${encodeURIComponent(service)}%0A*Requirement:* ${encodeURIComponent(message)}`;
-  
+
   window.open(`https://wa.me/9779866387790?text=${text}`, '_blank');
 }
 
@@ -886,7 +886,7 @@ function getStarHTML(rating) {
 
 function escapeHtml(str) {
   if (!str) return '';
-  return str.replace(/[&<>"']/g, function(m) {
+  return str.replace(/[&<>"']/g, function (m) {
     return {
       '&': '&amp;',
       '<': '&lt;',
